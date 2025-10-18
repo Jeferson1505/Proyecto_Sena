@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Bar, Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -9,6 +9,7 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
+import { Route } from "react-router-dom";
 
 ChartJS.register(
   BarElement,
@@ -20,6 +21,7 @@ ChartJS.register(
 );
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
   // Datos para gráfico de barras
   const barData = {
     labels: ["Máquina 1", "Máquina 2", "Máquina 3", "Máquina 4"],
@@ -54,6 +56,8 @@ export default function Home() {
     responsive: true,
   };
 
+  
+
   return (
     <div className="max-w-7xl mx-auto p-5 bg-gray-50 min-h-screen">
       {/* Header */}
@@ -64,11 +68,11 @@ export default function Home() {
 
       {/* Cards resumen */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-5">
-        <div className="bg-white p-5 rounded-xl shadow text-center">
+        <button className="bg-white p-5 rounded-xl shadow text-center">
           <div className="text-4xl mb-2">📚</div>
           <p className="text-2xl font-bold">300</p>
           <span>Láminas</span>
-        </div>
+        </button>
         <div className="bg-white p-5 rounded-xl shadow text-center">
           <div className="text-4xl mb-2">✂️</div>
           <p className="text-2xl font-bold">58</p>
